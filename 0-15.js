@@ -211,3 +211,66 @@ if ((x % 2 === 0 && y % 2 === 0) || (x % 2 !== 0 && y % 2 !== 0)) {
 } else  {
   alert('black');
 } 
+
+//18
+const text = prompt('write something')
+
+text.toLowerCase();
+let textArr = text.split('');
+for (let i = 0; i < textArr.length; i++) {
+  if (textArr[i] && i % 2 !== 0) {
+    textArr[i] = textArr[i].toUpperCase()
+  }
+}
+let newText = textArr.join('');
+
+
+alert(newText)
+
+//19
+const getFactorial = (num) => {
+  if (num > 20) {
+    return -1
+  }
+  let arr = [];
+
+  for (let i = 1; i <= num; i++) {
+    arr[i] = i;
+  }
+
+  return  arr.reduce((prev, curr) => prev * curr, 1);
+}
+
+console.log(getFactorial(5))
+
+//20
+const calc = (text) => {
+  const expression = text.split(' ');
+
+  const first = expression[0];
+  const action = expression[1];
+  const second = expression[2];
+
+  if (+second === 0) {
+    return 'error'
+  }
+  switch (action) {
+    case '+':
+      return first + second
+      break;
+    case '-':
+      return first - second
+      break;
+    case '*':
+      return first * second
+      break;
+    case '/':
+      return first / second
+      break;
+    default:
+      return 'error'
+
+  }
+}
+
+console.log(calc('54 / 0'))
