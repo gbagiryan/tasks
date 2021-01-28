@@ -58,14 +58,21 @@ console.log(filteredArr);
 
 //Reduce
 const reduce = (arr, cb, defVal) => {
-    let prev = defVal ? defVal : 0;
+    let prev;
+    let i = 0
+    if (defVal) {
+        prev = defVal;
+    } else {
+        prev = arr[0];
+        i = 1;
+    }
     let result;
-    for (let i = 0; i < arr.length; i++) {
+    for (i; i < arr.length; i++) {
         result = cb(prev, arr[i]);
         prev = result;
     }
     return result;
 }
 
-const reducedArr = reduce(arr, (prev, curr) => prev + curr, 1);
+const reducedArr = reduce(arr, (prev, curr) => prev + curr);
 console.log(reducedArr);

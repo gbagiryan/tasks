@@ -2,13 +2,13 @@ const getFactorial = (num) => {
     if (num > 20) {
         return -1
     }
-    let arr = [];
+    let factor = 1;
 
     for (let i = 1; i <= num; i++) {
-        arr[i] = i;
+        factor *= i;
     }
 
-    return  arr.reduce((prev, curr) => prev * curr, 1);
+    return factor;
 }
 
 console.log(getFactorial(5))

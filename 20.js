@@ -1,30 +1,35 @@
 const calc = (text) => {
     const expression = text.split(' ');
+    let x = '';
+    let y;
+    let sign;
 
-    const first = expression[0];
-    const action = expression[1];
-    const second = expression[2];
+    for (let i = 0; i < expression.length; i++) {
+        if (isNaN(expression[i])) {
+            sign = expression[i];
+            y = expression.slice(i + 1).join('').trim();
+            break;
+        }
+        x += expression[i]
+    }
 
-    if (+second === 0) {
+    x = Number(x);
+    y = Number(y);
+    if (y === 0) {
         return 'error'
     }
-    switch (action) {
+    switch (sign) {
         case '+':
-            return first + second
-            break;
+            return x + y
         case '-':
-            return first - second
-            break;
+            return x - y
         case '*':
-            return first * second
-            break;
+            return x * y
         case '/':
-            return first / second
-            break;
+            return x / y
         default:
             return 'error'
-
     }
 }
 
-console.log(calc('54 / 0'))
+console.log(calc('52 / 2'))
